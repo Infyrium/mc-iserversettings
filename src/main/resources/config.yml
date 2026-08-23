@@ -1,0 +1,28 @@
+settings-player:
+  noPlayer: false
+  noMessage: false
+  noDamage: false
+  noHunger: false
+  noChat: false
+  gameMode: SURVIVAL
+  noCommands:
+    enabled: false
+    allowed_commands:
+      - help
+      - spawn
+
+settings-world:
+  noBreak: false
+  noPlace: false
+  noInteract: false
+  noFluidFlow: false
+  noExplosions: false
+  noWeather: false
+  noFireSpread: false
+  noLeafDecay: false
+  noGrowth: false
+  noMobGriefing: false
+  noMobSpawn: false
+  fixedTime:
+    enabled: false
+    meaning: 6000
