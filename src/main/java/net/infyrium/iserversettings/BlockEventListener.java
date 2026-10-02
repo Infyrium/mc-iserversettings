@@ -2,6 +2,7 @@ package net.infyrium.iserversettings;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameRule;
+import org.bukkit.NamespacedKey;
 import org.bukkit.World;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -23,6 +24,8 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.weather.LightningStrikeEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.event.world.StructureGrowEvent;
+import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.persistence.PersistentDataType;
 
 
 public class BlockEventListener implements Listener {
@@ -176,13 +179,11 @@ public class BlockEventListener implements Listener {
 
     public void applyWorldSettings() {
         for (World world : Bukkit.getWorlds()) {
+            disableGameRule(world, GameRule.DO_DAYLIGHT_CYCLE, fixedTime);
             if (fixedTime) {
-                world.setGameRule(GameRule.DO_DAYLIGHT_CYCLE, false);
                 world.setTime(fixedTimeMeaning);
             }
-            if (noMobGriefing) {
-                world.setGameRule(GameRule.MOB_GRIEFING, false);
-            }
+            disableGameRule(world, GameRule.MOB_GRIEFING, noMobGriefing);
         }
         if (noMobSpawn) {
             for (World world : Bukkit.getWorlds()) {
@@ -192,6 +193,26 @@ public class BlockEventListener implements Listener {
                     }
                 }
             }
+        }
+    }
+
+    /**
+     * Sets the gamerule to false and remembers its previous value in the world data.
+     * When the setting is turned off, restores the previous value.
+     */
+    private void disableGameRule(World world, GameRule<Boolean> rule, boolean disable) {
+        NamespacedKey key = new NamespacedKey(plugin, rule.getName().toLowerCase());
+        PersistentDataContainer data = world.getPersistentDataContainer();
+
+        if (disable) {
+            if (!data.has(key)) {
+                Boolean previous = world.getGameRuleValue(rule);
+                data.set(key, PersistentDataType.BOOLEAN, previous == null || previous);
+            }
+            world.setGameRule(rule, false);
+        } else if (data.has(key)) {
+            world.setGameRule(rule, data.get(key, PersistentDataType.BOOLEAN));
+            data.remove(key);
         }
     }
 
