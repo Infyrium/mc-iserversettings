@@ -52,19 +52,19 @@ public class BlockEventListener implements Listener {
         this.plugin = plugin;
 
         var config = plugin.getConfig();
-        this.noBreak = config.getBoolean("settings-world.noBreak");
-        this.noPlace = config.getBoolean("settings-world.noPlace");
-        this.noInteract = config.getBoolean("settings-world.noInteract");
-        this.noFluidFlow = config.getBoolean("settings-world.noFluidFlow");
-        this.noExplosions = config.getBoolean("settings-world.noExplosions");
-        this.noWeather = config.getBoolean("settings-world.noWeather");
-        this.noFireSpread = config.getBoolean("settings-world.noFireSpread");
-        this.noLeafDecay = config.getBoolean("settings-world.noLeafDecay");
-        this.noGrowth = config.getBoolean("settings-world.noGrowth");
-        this.noMobGriefing = config.getBoolean("settings-world.noMobGriefing");
-        this.noMobSpawn = config.getBoolean("settings-world.noMobSpawn");
-        this.fixedTime = config.getBoolean("settings-world.fixedTime.enabled");
-        this.fixedTimeMeaning = config.getLong("settings-world.fixedTime.meaning");
+        this.noBreak = config.getBoolean("settings.world.noBreak");
+        this.noPlace = config.getBoolean("settings.world.noPlace");
+        this.noInteract = config.getBoolean("settings.world.noInteract");
+        this.noFluidFlow = config.getBoolean("settings.world.noFluidFlow");
+        this.noExplosions = config.getBoolean("settings.world.noExplosions");
+        this.noWeather = config.getBoolean("settings.world.noWeather");
+        this.noFireSpread = config.getBoolean("settings.world.noFireSpread");
+        this.noLeafDecay = config.getBoolean("settings.world.noLeafDecay");
+        this.noGrowth = config.getBoolean("settings.world.noGrowth");
+        this.noMobGriefing = config.getBoolean("settings.world.noMobGriefing");
+        this.noMobSpawn = config.getBoolean("settings.world.noMobSpawn");
+        this.fixedTime = config.getBoolean("settings.world.fixedTime.enabled");
+        this.fixedTimeMeaning = config.getLong("settings.world.fixedTime.time");
     }
 
     @EventHandler

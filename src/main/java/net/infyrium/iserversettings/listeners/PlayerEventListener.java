@@ -43,14 +43,14 @@ public class PlayerEventListener implements Listener {
         this.plugin = plugin;
 
         var config = plugin.getConfig();
-        this.noPlayer = config.getBoolean("settings-player.noPlayer");
-        this.noMessage = config.getBoolean("settings-player.noMessage");
-        this.noDamage = config.getBoolean("settings-player.noDamage");
-        this.noHunger = config.getBoolean("settings-player.noHunger");
-        this.noChat = config.getBoolean("settings-player.noChat");
-        this.noCommands = config.getBoolean("settings-player.noCommands.enabled");
-        this.allowedCommands = config.getStringList("settings-player.noCommands.allowed_commands");
-        this.gameModeStr = config.getString("settings-player.gameMode");
+        this.noPlayer = config.getBoolean("settings.player.noPlayer");
+        this.noMessage = config.getBoolean("settings.player.noMessage");
+        this.noDamage = config.getBoolean("settings.player.noDamage");
+        this.noHunger = config.getBoolean("settings.player.noHunger");
+        this.noChat = config.getBoolean("settings.player.noChat");
+        this.noCommands = config.getBoolean("settings.player.noCommands.enabled");
+        this.allowedCommands = config.getStringList("settings.player.noCommands.allowedCommands");
+        this.gameModeStr = config.getString("settings.player.gameMode");
 
         if (noPlayer) {
             PacketEvents.getAPI().getEventManager().registerListener(new PacketListenerAbstract() {

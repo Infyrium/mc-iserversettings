@@ -5,11 +5,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import net.infyrium.iserversettings.listeners.BlockEventListener;
 import net.infyrium.iserversettings.listeners.PlayerEventListener;
+import net.infyrium.iserversettings.utils.ConfigUpdater;
 
 public class iServerSettingsMain extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        ConfigUpdater.backupIfOutdated(this, "config.yml");
         saveDefaultConfig();
 
         Bukkit.getPluginManager().registerEvents(new PlayerEventListener(this), this);

@@ -1,28 +1,31 @@
-settings-player:
-  noPlayer: false
-  noMessage: false
-  noDamage: false
-  noHunger: false
-  noChat: false
-  gameMode: SURVIVAL
-  noCommands:
-    enabled: false
-    allowed_commands:
-      - help
-      - spawn
+settings:
+  player:
+    noPlayer: false
+    noMessage: false
+    noDamage: false
+    noHunger: false
+    noChat: false
+    gameMode: SURVIVAL
+    noCommands:
+      enabled: false
+      allowedCommands:
+        - help
+        - spawn
 
-settings-world:
-  noBreak: false
-  noPlace: false
-  noInteract: false
-  noFluidFlow: false
-  noExplosions: false
-  noWeather: false
-  noFireSpread: false
-  noLeafDecay: false
-  noGrowth: false
-  noMobGriefing: false
-  noMobSpawn: false
-  fixedTime:
-    enabled: false
-    meaning: 6000
+  world:
+    noBreak: false
+    noPlace: false
+    noInteract: false
+    noFluidFlow: false
+    noExplosions: false
+    noWeather: false
+    noFireSpread: false
+    noLeafDecay: false
+    noGrowth: false
+    noMobGriefing: false
+    noMobSpawn: false
+    fixedTime:
+      enabled: false
+      time: 6000
+
+configVersion: 1 # Format version of this file, do not change
