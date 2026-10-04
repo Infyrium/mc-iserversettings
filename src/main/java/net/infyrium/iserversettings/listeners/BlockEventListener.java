@@ -1,4 +1,4 @@
-package net.infyrium.iserversettings;
+package net.infyrium.iserversettings.listeners;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameRule;
@@ -26,6 +26,8 @@ import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.event.world.StructureGrowEvent;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
+
+import net.infyrium.iserversettings.iServerSettingsMain;
 
 
 public class BlockEventListener implements Listener {

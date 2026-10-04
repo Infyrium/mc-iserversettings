@@ -1,4 +1,4 @@
-package net.infyrium.iserversettings;
+package net.infyrium.iserversettings.listeners;
 
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
@@ -23,6 +23,8 @@ import com.github.retrooper.packetevents.wrapper.play.server.WrapperPlayServerPl
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
+import net.infyrium.iserversettings.iServerSettingsMain;
 
 public class PlayerEventListener implements Listener {
 

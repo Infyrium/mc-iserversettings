@@ -3,6 +3,9 @@ package net.infyrium.iserversettings;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import net.infyrium.iserversettings.listeners.BlockEventListener;
+import net.infyrium.iserversettings.listeners.PlayerEventListener;
+
 public class iServerSettingsMain extends JavaPlugin {
 
     @Override
